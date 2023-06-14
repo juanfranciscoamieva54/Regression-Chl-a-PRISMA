@@ -19,4 +19,12 @@ Regarding the models taken into account for this project, a total of four model 
 
 ## Technical considerations for using this repository
 
+### Downloading images
+
+- The file "dataset_config.xls" present in the folder "data" specifies the filenames and relevant information associated with the different products to be download for each use case.
+- The AOI to be considered for all the imagery to be downloaded, is available in the folder "data" and the filename of this bounding box is "
+- The ground truth maps (chlorophyll-a maps) are present in the folder "SIMILE_chl_a" which is inside the folder "data" of this repository.
+- On the other hand, the products which must be downloaded are:
++ PRISMA images: the processing level used was L2D. This information must be downloaded from the official website of the PRISMA mission, using the appropiate credentials. The mentioned file "dataset_config.xls" specifies the name corresponding to each acquisition. The AOI is present in the folder 
+
 ## References
