@@ -23,6 +23,7 @@ Regarding the models taken into account for this project, a total of four model 
 - The number which is placed as a prefix of the different files present in this repository indicates the order of execution that must be followed for the proper use. 
 - The notebook "4_inference" is optional because it can be used in case that it is just desired to infer using a model which was previously trained and saved.
 - The script files without number prefix are general utils which are used in the "1_Pre_processing_inputs.py" script.
+- For executing the script "1_Pre_processing_inputs.py"
 
 ### Downloading images
 
