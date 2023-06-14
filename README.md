@@ -30,24 +30,23 @@ Regarding the models taken into account for this project, a total of four model 
 
 - The AOI to be considered for all the imagery to be downloaded, is available in the folder "data" and the filename of this bounding box is "bounding_box_AOI.geojson".
 
-- The products which must be downloaded are:
+#### The products which must be downloaded are:
 
 + PRISMA images: the processing level used was L2D. This information must be downloaded from the official website of the PRISMA mission, using the appropiate credentials. The mentioned file "dataset_config.xls" specifies the name corresponding to each acquisition.
 
 + Sentinel 2 - green band: S2 green band in reflectance units corresponding to the mosaic produced taking into account the period  "11/09/2022" - "18/09/2022". This file must be placed in the path "/data/inputs/s2_reference_coreg/". The file containing the mentioned S2 green band must be named: "green_reflectance_s2_fill.tif".
 
-+ Sentinel 3 bands: Different bands of S3 satellite are used in the script "2_Removing_anomalous_pixels.py" and for each use case, the file "dataset_config.xls" (present in the parent folder "data") specifies the name of the associated S3 product. The files to download must be placed in the folder "/data/inputs/s3_reflectances/" and they must take into account the following naming convention:
++ Sentinel 3 bands: Different bands of S3 satellite are used in the script "2_Removing_anomalous_pixels.py" and for each use case, the file "dataset_config.xls" (present in the parent folder "data") specifies the name of the associated S3 product. The files to download must be placed in the folder "/data/inputs/s3_reflectances/" and they must take into account the naming convention specified next.
   
-  Names of the bands used in the mentioned script:
+ #### Names of the S3 bands used in the mentioned script:
 
-    prefix = s3_fname column in the dataset_config.xls file
-
-    prefix + B03_(Raw).tiff
-    prefix + B04_(Raw).tiff
-    prefix + B06_(Raw).tiff
-    prefix + B08_(Raw).tiff
-    prefix + B11_(Raw).tiff
-    prefix + B12_(Raw).tiff
+   - prefix = s3_fname column in the dataset_config.xls file
+   - prefix + B03_(Raw).tiff
+   - prefix + B04_(Raw).tiff
+   - prefix + B06_(Raw).tiff
+   - prefix + B08_(Raw).tiff
+   - prefix + B11_(Raw).tiff
+   - prefix + B12_(Raw).tiff
 
 
 ## References
