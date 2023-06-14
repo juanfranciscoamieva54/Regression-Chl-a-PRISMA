@@ -19,12 +19,35 @@ Regarding the models taken into account for this project, a total of four model 
 
 ## Technical considerations for using this repository
 
+- The ground truth maps (chlorophyll-a maps) are present in the folder "SIMILE_chl_a" which is inside the folder "data" of this repository.
+- The number which is placed as a prefix of the different files present in this repository indicates the order of execution that must be followed for the proper use. 
+- The notebook "4_inference" is optional because it can be used in case that it is just desired to infer using a model which was previously trained and saved.
+- The script files without number prefix are general utils which are used in the "1_Pre_processing_inputs.py" script.
+
 ### Downloading images
 
 - The file "dataset_config.xls" present in the folder "data" specifies the filenames and relevant information associated with the different products to be download for each use case.
-- The AOI to be considered for all the imagery to be downloaded, is available in the folder "data" and the filename of this bounding box is "
-- The ground truth maps (chlorophyll-a maps) are present in the folder "SIMILE_chl_a" which is inside the folder "data" of this repository.
-- On the other hand, the products which must be downloaded are:
-+ PRISMA images: the processing level used was L2D. This information must be downloaded from the official website of the PRISMA mission, using the appropiate credentials. The mentioned file "dataset_config.xls" specifies the name corresponding to each acquisition. The AOI is present in the folder 
+
+- The AOI to be considered for all the imagery to be downloaded, is available in the folder "data" and the filename of this bounding box is "bounding_box_AOI.geojson".
+
+- The products which must be downloaded are:
+
++ PRISMA images: the processing level used was L2D. This information must be downloaded from the official website of the PRISMA mission, using the appropiate credentials. The mentioned file "dataset_config.xls" specifies the name corresponding to each acquisition.
+
++ Sentinel 2 - green band: S2 green band in reflectance units corresponding to the mosaic produced taking into account the period  "11/09/2022" - "18/09/2022". This file must be placed in the path "/data/inputs/s2_reference_coreg/". The file containing the mentioned S2 green band must be named: "green_reflectance_s2_fill.tif".
+
++ Sentinel 3 bands: Different bands of S3 satellite are used in the script "2_Removing_anomalous_pixels.py" and for each use case, the file "dataset_config.xls" (present in the parent folder "data") specifies the name of the associated S3 product. The files to download must be placed in the folder "/data/inputs/s3_reflectances/" and they must take into account the following naming convention:
+  
+  Names of the bands used in the mentioned script:
+
+    prefix = s3_fname column in the dataset_config.xls file
+
+    prefix + B03_(Raw).tiff
+    prefix + B04_(Raw).tiff
+    prefix + B06_(Raw).tiff
+    prefix + B08_(Raw).tiff
+    prefix + B11_(Raw).tiff
+    prefix + B12_(Raw).tiff
+
 
 ## References
