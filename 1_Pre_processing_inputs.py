@@ -163,6 +163,11 @@ for idx,row in df.iterrows():
         pass
     else:
         os.mkdir(INTERM_PATH)
+        
+    if os.path.exists(OUT_PATH):
+        pass
+    else:
+        os.mkdir(OUT_PATH)
 
     print("Intersection of PRISMA - S2 and resizing PRISMA to S2")
     # ### Intersection of PRISMA - S2 and resizing PRISMA to S2
@@ -353,10 +358,23 @@ for idx,row in df.iterrows():
     prisma_masked=PRS_ovl*(chl_ovl2[0]!=0)
     chl_masked=chl_ovl2*(PRS_ovl[0]!=0)
 
-    with rio.open(OUT_PATH+f"PRS_imgs/{str(acquisition_id)}.tif", mode="w", **meta_PRS_ovl) as dst:
+    OUT_PRS = OUT_PATH + "PRS_imgs/"
+    OUT_CHL = OUT_PATH + "GT/"
+    
+    if os.path.exists(OUT_PRS):
+        pass
+    else:
+        os.mkdir(OUT_PRS)
+        
+    if os.path.exists(OUT_CHL):
+        pass
+    else:
+        os.mkdir(OUT_CHL)
+    
+    with rio.open(OUT_PRS+f"{str(acquisition_id)}.tif", mode="w", **meta_PRS_ovl) as dst:
         dst.write(prisma_masked)
 
-    with rio.open(OUT_PATH+f"GT/{str(acquisition_id)}.tif", mode="w", **meta_chl_ovl2) as dst:
+    with rio.open(OUT_CHL+f"{str(acquisition_id)}.tif", mode="w", **meta_chl_ovl2) as dst:
         dst.write(chl_masked)
 
     print("Removing temporary and intermediate files")

@@ -213,7 +213,14 @@ for idx in list_ids_images:
 
     chl_map_corrected = np.expand_dims(chl_map_corrected,0)
 
-    with rasterio.open(CHL_PATH +"GT_300_no_anomalies/"+ str(idx)+".tif",mode="w",**meta_chl_out) as dst:
+    OUT_PATH = CHL_PATH +"GT_300_no_anomalies/"
+    
+    if os.path.exists(OUT_PATH):
+        pass
+    else:
+        os.mkdir(OUT_PATH)
+        
+    with rasterio.open(OUT_PATH + str(idx)+".tif",mode="w",**meta_chl_out) as dst:
         dst.write(chl_map_corrected)
 
 
